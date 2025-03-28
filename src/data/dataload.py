@@ -35,7 +35,7 @@ def main():
 
     final_df=preprosed(df)
     train_data,test_data=train_test_split(final_df,test_size=test_size, random_state=42)
-    save_data(train_data, test_data, data_path='C:/Users/Admin/Music/mlop1/depressed_or_not/datas')
+    save_data(train_data, test_data, data_path=r'C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas')
 if __name__=="__main__":
     main()
 

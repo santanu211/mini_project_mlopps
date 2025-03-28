@@ -4,8 +4,8 @@ import pandas as pd
 import os
 
 # Import data from processed data
-train_data = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\processed\train.csv")
-test_data = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\processed\test.csv")
+train_data = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\processed\train.csv")
+test_data = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\processed\test.csv")
 
 # Fill missing values
 train_data.fillna(0, inplace=True)  # Assuming depression is numerical
@@ -32,7 +32,7 @@ def main():
     train_x, train_y = sep_lab(train_data)
     test_x, test_y = sep_lab(test_data)
     
-    save(train_x, train_y, test_x, test_y, data_path="C:/Users/Admin/Music/mlop1/depressed_or_not/datas")
+    save(train_x, train_y, test_x, test_y, data_path=r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas")
 
 if __name__ == "__main__":
     main()

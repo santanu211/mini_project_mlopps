@@ -4,8 +4,8 @@ import os
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 # Load data from raw table
-train_data = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\raw\train.csv")
-test_data = pd.read_csv("C:/Users/Admin/Music/mlop1/depressed_or_not/datas/raw/test.csv")
+train_data = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\raw\train.csv")
+test_data = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\raw\test.csv")
 
 
 def standardize(data):
@@ -30,7 +30,7 @@ def save(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> N
 def main():
     train_prepro_data = standardize(train_data)
     test_prepro_data = standardize(test_data)
-    save(train_prepro_data, test_prepro_data, data_path="C:/Users/Admin/Music/mlop1/depressed_or_not/datas")
+    save(train_prepro_data, test_prepro_data, data_path=r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas")
 
 if __name__ == "__main__":
     main()

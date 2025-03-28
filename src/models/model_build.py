@@ -18,10 +18,10 @@ def load_param(path):
 
 
 # Load the data
-x_train = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\feature\train_features.csv")
-y_train = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\feature\train_labels.csv")
-x_test = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\feature\test_features.csv")
-y_test = pd.read_csv(r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas\feature\test_labels.csv")
+x_train = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\train_features.csv")
+y_train = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\train_labels.csv")
+x_test = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\test_features.csv")
+y_test = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\test_labels.csv")
 
 # Ensure y_train and y_test are series (not DataFrame)
 y_train = y_train.iloc[:, 0] if isinstance(y_train, pd.DataFrame) else y_train
@@ -48,7 +48,7 @@ if y_train.dtype not in ['int64', 'int32']:
 # Train the model
 def train_model(x_train, y_train):
     """Train a RandomForest model."""
-    dt = DecisionTreeClassifier()    
+    dt = RandomForestClassifier()    
     dt.fit(x_train, y_train)
     return dt
 
@@ -68,7 +68,7 @@ def save_results(y_test, y_pred, data_path):
 def main():
     dt_model = train_model(x_train, y_train)
     y_pred = predict(dt_model, x_test)
-    save_results(y_test, y_pred, data_path=r"C:\Users\Admin\Music\mlop1\depressed_or_not\datas")
+    save_results(y_test, y_pred, data_path=r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas")
 
 if __name__ == "__main__":
     main()
