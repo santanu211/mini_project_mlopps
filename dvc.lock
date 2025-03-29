@@ -67,11 +67,11 @@ stages:
     params:
       params.yaml:
         models.model_build.n_estimators: 150
-        models.model_build.random_state: 45
+        models.model_build.random_state: 44
     outs:
     - path: datas/model
       hash: md5
-      md5: a03504dd34fb47c6848775a62a887a7d.dir
+      md5: 9195bf5d5edeb2e666284c0c2967b4c1.dir
       size: 33505
       nfiles: 2
   model_evaluation:
@@ -79,7 +79,7 @@ stages:
     deps:
     - path: datas/model
       hash: md5
-      md5: a03504dd34fb47c6848775a62a887a7d.dir
+      md5: 9195bf5d5edeb2e666284c0c2967b4c1.dir
       size: 33505
       nfiles: 2
     - path: src/models/model_evalution.py
@@ -89,5 +89,5 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 7d597831fc04857d62676f0071548f5d
-      size: 145
+      md5: 6e5dc919465377fd7f1a4be3ee2580c3
+      size: 144
