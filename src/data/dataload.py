@@ -32,7 +32,8 @@ def save_data(train_data:pd.DataFrame,test_data:pd.DataFrame,data_path:str)->Non
 def main():
     test_size = load_params("params.yaml")  # Assuming `params.yaml` is in the same directory
 
-    df = load_data("C:/Users/Admin/Music/Student Depression Dataset.csv")
+    df = pd.read_csv(r"C:\Users\Admin\Music\Student Depression Dataset.csv")
+
 
     final_df=preprosed(df)
     train_data,test_data=train_test_split(final_df,test_size=test_size, random_state=42)
