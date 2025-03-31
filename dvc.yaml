@@ -2,7 +2,8 @@ stages:
   dataload:
     cmd: python src/data/dataload.py
     deps:
-    - src/data/dataload.py
+      - src/data/dataload.py
+      - datas/Student Depression Dataset.csv
     params:
     - data.dataload.test_size
     outs:
