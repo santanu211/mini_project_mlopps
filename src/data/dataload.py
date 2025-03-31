@@ -35,7 +35,6 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 
 def main():
     test_size = load_params("params.yaml")  # Assuming `params.yaml` is in the same directory
-    random_state = load_params("params.yaml")
 
     # Check if the dataset exists
     data_path = "datas/Student Depression Dataset.csv"
@@ -49,7 +48,7 @@ def main():
     final_df = preprosed(df)
 
     # Split the data
-    train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=random_state)
+    train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=2)
 
     # Save the processed data
     save_data(train_data, test_data, data_path=r'C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas')
