@@ -5,11 +5,11 @@ stages:
     deps:
     - path: src/data/dataload.py
       hash: md5
-      md5: 678b68313eb76b478a66cae048a3bafb
-      size: 1490
+      md5: 0c5da87bc095a5d943c564afb7c5613b
+      size: 1501
     params:
       params.yaml:
-        data.dataload.test_size: 0.3
+        data.dataload.test_size: 0.2
     outs:
     - path: datas/raw
       hash: md5

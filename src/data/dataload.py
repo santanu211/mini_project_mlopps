@@ -30,7 +30,8 @@ def save_data(train_data:pd.DataFrame,test_data:pd.DataFrame,data_path:str)->Non
     test_data.to_csv(os.path.join(data_path,"test.csv"),index=False)
 
 def main():
-    test_size=load_params(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\params.yaml")
+    test_size = load_params("params.yaml")  # Assuming `params.yaml` is in the same directory
+
     df = load_data("C:/Users/Admin/Music/Student Depression Dataset.csv")
 
     final_df=preprosed(df)
