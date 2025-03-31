@@ -32,7 +32,8 @@ def save_data(train_data:pd.DataFrame,test_data:pd.DataFrame,data_path:str)->Non
 def main():
     test_size = load_params("params.yaml")  # Assuming `params.yaml` is in the same directory
 
-    df = pd.read_csv(r"C:\Users\Admin\Music\Student Depression Dataset.csv")
+    df = pd.read_csv("datas/Student_Depression_Dataset.csv")
+
 
 
     final_df=preprosed(df)
