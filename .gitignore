@@ -92,3 +92,4 @@ target/
 mlop
 
 /metrics.json
+/model_info.json

@@ -1,10 +1,10 @@
 data:
   dataload:
-    test_size: 0.3
+    test_size: 0.2
 models:
   model_build:
     n_estimators: 150
-    random_state: 45
+    random_state: 42
 
 
 
