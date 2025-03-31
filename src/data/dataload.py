@@ -48,7 +48,7 @@ def main():
     final_df = preprosed(df)
 
     # Split the data
-    train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=2)
+    train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=42)
 
     # Save the processed data
     save_data(train_data, test_data, data_path=r'C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas')
