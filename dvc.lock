@@ -3,10 +3,14 @@ stages:
   dataload:
     cmd: python src/data/dataload.py
     deps:
+    - path: datas/Student Depression Dataset.csv
+      hash: md5
+      md5: 429ccda19bdafd54c265f9ccab346c21
+      size: 2807716
     - path: src/data/dataload.py
       hash: md5
-      md5: 0c5da87bc095a5d943c564afb7c5613b
-      size: 1501
+      md5: 463436c53f57ab5b1250a286bcbf7a6e
+      size: 1494
     params:
       params.yaml:
         data.dataload.test_size: 0.2

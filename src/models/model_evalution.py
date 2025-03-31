@@ -11,6 +11,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+
 # Set up DagsHub credentials for MLflow tracking
 dagshub_token = os.getenv("DAGSHUB_PAT")
 if not dagshub_token:
@@ -25,6 +26,7 @@ repo_name = "mini_project_mlopps"
 
 # Set up MLflow tracking URI
 mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
+
 
 mlflow.set_experiment("dvc pipeline")
 
