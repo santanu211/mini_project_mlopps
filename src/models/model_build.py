@@ -64,11 +64,24 @@ def save_results(y_test, y_pred, data_path):
     pd.DataFrame(y_test, columns=["Actual"]).to_csv(os.path.join(data_path, "actualdt.csv"), index=False)
     pd.DataFrame(y_pred, columns=["Predicted"]).to_csv(os.path.join(data_path, "predicteddt.csv"), index=False)
 
+import pickle
+
+def save_model(model, file_path):
+    """Save the trained model using pickle."""
+    with open(file_path, 'wb') as file:
+        pickle.dump(model, file)
+    print(f"Model saved at: {file_path}")
+
+
 # Main execution
 def main():
     dt_model = train_model(x_train, y_train)
     y_pred = predict(dt_model, x_test)
     save_results(y_test, y_pred, data_path=r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas")
+
+    # Save the trained model
+    save_model(dt_model, r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\models\model.pkl")
+
 
 if __name__ == "__main__":
     main()

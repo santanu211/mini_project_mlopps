@@ -32,6 +32,7 @@ stages:
     - models.model_build.random_state
     outs:
     - datas/model
+    - models/model.pkl
 
   model_evaluation:
     cmd: python src/models/model_evalution.py
@@ -40,3 +41,11 @@ stages:
     - src/models/model_evalution.py
     metrics:
     - metrics.json
+    outs:
+    - model_info.json
+
+  model_registration:
+    cmd: python src/models/register_model.py
+    deps:
+    - model_info.json
+    - src/models/register_model.py
