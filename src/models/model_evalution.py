@@ -6,10 +6,22 @@ import json
 import pickle  # Added to load the model
 from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score
 import dagshub
+import os
 
-# Set up DagsHub MLflow tracking
-mlflow.set_tracking_uri("https://dagshub.com/santanu211/mini_project_mlopps.mlflow")
-dagshub.init(repo_owner='santanu211', repo_name='mini_project_mlopps', mlflow=True)
+# Set up DagsHub credentials for MLflow tracking
+dagshub_token = os.getenv("DAGSHUB_PAT")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+dagshub_url = "https://dagshub.com"
+repo_owner = "Santanu211"
+repo_name = "mini_project_mlopps"
+
+# Set up MLflow tracking URI
+mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
 mlflow.set_experiment("dvc pipeline")
 
