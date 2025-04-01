@@ -9,9 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-mlflow.set_tracking_uri("https://dagshub.com/santanu211/mini_project_mlopps.mlflow")
-
-dagshub.init(repo_owner='santanu211', repo_name='mini_project_mlopps', mlflow=True)
 
 
 
