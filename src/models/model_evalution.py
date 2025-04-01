@@ -37,11 +37,11 @@ mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 mlflow.set_experiment("dvc pipeline")
 
 # Load test data
-y_test = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\model\actualdt.csv")
-y_pred = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\model\predicteddt.csv")
+y_test = pd.read_csv("datas/model/actualdt.csv")
+y_pred = pd.read_csv("datas/model/predicteddt.csv")
 
 # Load trained model
-model_path = r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\models\model.pkl"  # Update path
+model_path = "models/model.pkl"  # Update path
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 

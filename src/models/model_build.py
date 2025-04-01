@@ -18,10 +18,10 @@ def load_param(path):
 
 
 # Load the data
-x_train = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\train_features.csv")
-y_train = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\train_labels.csv")
-x_test = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\test_features.csv")
-y_test = pd.read_csv(r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas\feature\test_labels.csv")
+x_train = pd.read_csv("datas/feature/train_features.csv")
+y_train = pd.read_csv("datas/feature/train_labels.csv")
+x_test = pd.read_csv("datas/feature/test_features.csv")
+y_test = pd.read_csv("datas/feature/test_labels.csv")
 
 # Ensure y_train and y_test are series (not DataFrame)
 y_train = y_train.iloc[:, 0] if isinstance(y_train, pd.DataFrame) else y_train
@@ -77,10 +77,10 @@ def save_model(model, file_path):
 def main():
     dt_model = train_model(x_train, y_train)
     y_pred = predict(dt_model, x_test)
-    save_results(y_test, y_pred, data_path=r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\datas")
+    save_results(y_test, y_pred, data_path="datas")
 
     # Save the trained model
-    save_model(dt_model, r"C:\Users\Admin\Music\mini_project_mlopps\mini_project\models\model.pkl")
+    save_model(dt_model, "models/model.pkl")
 
 
 if __name__ == "__main__":
