@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Prediction</title>
+</head>
+<body>
+    <h2>Enter Details for Depression Prediction</h2>
+    <form action="/predict" method="post">
+        <label>Gender:</label>
+        <select name="feature1">
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+            <option value="2">Other</option>
+        </select><br>
+
+        <input type="number" name="feature2" placeholder="Age" required><br>
+
+        <label>City Type:</label>
+        <select name="feature3">
+            <option value="0">Urban</option>
+            <option value="1">Suburban</option>
+            <option value="2">Rural</option>
+        </select><br>
+
+        <label>Profession:</label>
+        <select name="feature4">
+            <option value="0">Student</option>
+            <option value="1">Employed</option>
+            <option value="2">Unemployed</option>
+        </select><br>
+
+        <input type="number" name="feature5" placeholder="Academic Pressure (1-5)" required><br>
+        <input type="number" name="feature6" placeholder="Work Pressure (1-5)" required><br>
+        <input type="number" name="feature7" placeholder="CGPA (0-4)" step="0.1" required><br>
+        <input type="number" name="feature8" placeholder="Study Satisfaction (1-5)" required><br>
+        <input type="number" name="feature9" placeholder="Job Satisfaction (1-5)" required><br>
+        <input type="number" name="feature10" placeholder="Sleep Duration (hours)" step="0.1" required><br>
+
+        <label>Dietary Habits:</label>
+        <select name="feature11">
+            <option value="0">Unhealthy</option>
+            <option value="1">Moderate</option>
+            <option value="2">Healthy</option>
+        </select><br>
+
+        <label>Degree Level:</label>
+        <select name="feature12">
+            <option value="0">High School</option>
+            <option value="1">Bachelor's</option>
+            <option value="2">Master's</option>
+            <option value="3">PhD</option>
+        </select><br>
+
+        <label>Have you ever had suicidal thoughts?</label>
+        <select name="feature13">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <button type="submit">Predict</button>
+    </form>
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
