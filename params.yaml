@@ -1,6 +1,6 @@
 data:
   dataload:
-    test_size: 0.2
+    test_size: 0.25
 models:
   model_build:
     n_estimators: 150
