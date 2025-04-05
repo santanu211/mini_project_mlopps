@@ -69,7 +69,7 @@ jobs:
 
       - name: Deploy to EC2 via SSH
         if: success()
-        uses: appleboy/ssh-action@v1.0.10
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -85,3 +85,4 @@ jobs:
               -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
               -e DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }} \
               santanu211/depres1:latex
+
