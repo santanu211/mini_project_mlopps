@@ -66,3 +66,22 @@ jobs:
       - name: 🚀 Push Docker Image
         if: success()
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/depres1:latex
+
+      - name: Deploy to EC2 via SSH
+        if: success()
+        uses: appleboy/ssh-action@v1.0.5
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            docker pull santanu211/depres1:latex
+            docker stop my-app || true
+            docker rm my-app || true
+            docker run -d \
+              --name my-app \
+              -p 80:5000 \
+              -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
+              -e DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }} \
+              santanu211/depres1:latex
