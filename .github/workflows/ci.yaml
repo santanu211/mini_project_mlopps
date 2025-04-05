@@ -46,8 +46,23 @@ jobs:
         run: python -m unittest tests/test_flask.py
 
       - name: Promote model to production
-      
+
         if: success()
         env:
           DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
         run: python scripts/promote_model.py
+
+      - name: 🔐 Log in to DockerHub
+        if: success()
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: 🛠️ Build Docker Image
+        if: success()
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/depres1:latex .
+
+      - name: 🚀 Push Docker Image
+        if: success()
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/depres1:latex
